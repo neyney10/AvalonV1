@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="he-IL" dir="rtl">
+    <meta charset="utf-8">
+    <head>
+            <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+            <% include partials/background %>
+    </head>
+
+    <body>
+            <% include partials/navbar %>
+            <% include partials/modals/card-details %>
+            <div id="container2" >
+                    <% include partials/panel %>
+                    <div class='col-lg-2 d-sm-none d-none d-md-block'>
+                            <% include partials/user-nav-panel %>
+                    </div>
+                        
+                    <br/>
+                    <div id="window" class="col-lg-10 col-sm-12">
+                            <div id="windowhead">
+                                    קלפים
+                            </div>
+                            <br/><br/>
+                            <div id="content">
+                                    <% for(var i = 0; i < files.length ; i++) {%>
+                                        <img src= './images/cards/<%=files[i]%>' data-name= '<%=files[i]%>' >
+                                    <% } %>
+                            </div>
+
+                </div>
+                
+                
+            </div>
+    </body>
+
+    <footer>
+            <link rel="stylesheet" type="text/css" href="/cards.css">
+
+            <script src="/cards.js"></script>
+    </footer>
+</html>

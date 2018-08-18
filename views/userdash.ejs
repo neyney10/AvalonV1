@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="he-IL" dir="rtl">
+    <meta charset="utf-8">
+    <head>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+            <% include partials/background %>
+    </head>
+
+    <body>
+            <% include partials/navbar %>
+            
+            <div id="container2" >
+                
+                    <div class='col-lg-2 d-sm-none d-none d-md-block'>
+                            <% include partials/user-nav-panel %>
+                    </div>
+                        
+                    <br/>
+                    <div id="window" class="col-lg-10 col-sm-12">
+                            <div id="windowhead">
+                                    ניהול משתמשים
+                                </div>
+                        <ul>
+                                <% for(var i = 0 ; i < users.length ; i++) { %>
+                                    <li><span class='spanedit'><i class="fas fa-user-edit"></i></span><span class='spanremove'><i class="fas fa-trash"></i></span><%=users[i].user%></li>
+                                <% } %>
+                        </ul>
+                        
+                   
+                </div>
+                
+                
+            </div>
+    </body>
+
+    <footer>
+            <link rel="stylesheet" type="text/css" href="/userdash.css">
+            <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    
+            <script src="/script.js"></script>
+    </footer>
+</html>

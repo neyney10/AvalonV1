@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="he-IL" dir="rtl">
+    <meta charset="utf-8">
+    <head>
+            <% include partials/background %>
+    </head>
+
+    <body>
+            <% include partials/navbar-test %>
+          
+            <div id="container2" >
+                        <% include partials/panel %>
+                    <div class='col-lg-2 d-sm-none d-none d-md-block'>
+                            <% include partials/user-nav-panel %>
+                    </div>
+                        
+                    <br/>
+                    <div id="window" class="col-lg-10 col-sm-12">
+                            <div id="windowhead">
+                                    פרופיל
+                            </div>
+                            <br/><br/>
+
+                        <!-- Example split danger button -->
+               <!-- Example single danger button -->
+
+
+
+                            <div id="content">
+                                <span>שם/אימייל:</span> 
+                                <%= user %>
+                                <br>
+                                <span>רמה:</span> 
+                                <%= userobj.level %>
+                                <br>
+                                <span>מספר מזהה:</span> 
+                                <%= userobj.id %>
+                                <br>
+                                <span>מחרוזת מזהה:</span> 
+                                <%= userobj._id %>
+                                <br>
+                                <span id="passchange">
+                                        <input type="text">
+                                        <button id="changenow" class="btn btn-primary">שנה עכשיו!</button>
+                                </span>
+
+                                <button id="showchange"class="btn btn-primary">שנה סיסמה</button>
+                            </div>
+
+                </div>
+                
+                
+            </div>
+    </body>
+
+    <footer>
+            <link rel="stylesheet" type="text/css" href="/test.css">
+            <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
+             crossorigin="anonymous"></script>
+             
+            <script src="/bootstrap.js"></script>
+
+
+       
+            <script> 
+                var userstringid = '<%= userobj._id  %>';
+             </script>
+            <script src="/profile.js"></script>
+    </footer>
+</html>

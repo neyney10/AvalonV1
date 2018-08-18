@@ -1,0 +1,118 @@
+
+
+body {
+    height: 100%;
+    
+}
+h1, h4 {
+    text-align: center;
+    
+}
+img {
+    width: 88px;
+    height: 88px;
+    margin-bottom: 20px;
+    filter:drop-shadow(8px 8px 10px gray); 
+}
+
+
+
+
+
+
+#content {
+
+    padding-top: 13%;
+}
+
+#join {
+    margin: auto;
+    border: 2px solid rgba(196, 77, 77,0.7);
+    width: 120px;
+    background-color: #974949;
+    color: darkred;
+    font-family: ozard;
+    text-align: center;
+}
+#join:hover {
+    color:rgb(240, 15, 15);
+    border: 2px solid rgba(240, 113, 113, 0.7);
+    background-color: #c27b7b;
+}
+#join:focus {
+    box-shadow: 0px 0px 0px 0.2rem rgba(255, 0, 64, 0.25);
+}
+
+#div2 {
+    margin-top: 400px;
+}
+
+#hr {
+    width: 70%;
+    border-top: 1px solid darkred;
+    border-bottom: 1px solid rgba(0,0,0,0.4);;
+}
+
+
+
+#headline {
+    font-size: 5em;
+    font-weight: 700;
+    color: darkred;
+    text-shadow:  -1px 0 0px #753131, 
+                 0 1px 0px #753131,
+                 1px 0 0px #753131,  
+                 0 -1px 0px #753131,
+                 0px 4px 3px rgba(90, 11, 11,0.4),
+                 0px 6px 6px rgba(196, 77, 77,0.3),
+                 0px 10px 9px rgba(209, 163, 163,0.2);
+    font-family: ozard, trashim-bold;
+
+    
+   /* font-family: Arial, Helvetica, sans-serif;  #dd0f0f*/
+}
+
+#subheadline {
+    font-weight: 500;
+    font-size: 1.7em;
+    color: rgb(71, 12, 12);
+    text-shadow: 
+                  0px 2px 2px rgba(90, 11, 11,0.3),
+                  0px 4px 4px rgba(196, 77, 77,0.3),
+                  0px 7px 6px rgba(209, 163, 163,0.3);
+    font-family: ozard, trashim-bold;
+    font-size: 22px;
+}
+
+
+
+
+@media only screen and (min-width: 768px) 
+{
+#headline {
+    font-size: 5em;
+    font-weight: 700;
+    color: darkred;
+    text-shadow:  -1px 0 0px #753131, 
+                 0 1px 0px #753131,
+                 1px 0 0px #753131,  
+                 0 -1px 0px #753131,
+                 0px 4px 3px rgba(90, 11, 11,0.5),
+                 0px 8px 6px rgba(196, 77, 77,0.7),
+                 0px 12px 9px rgba(209, 163, 163,0.6);
+    font-family: ozard;
+    
+   /* font-family: Arial, Helvetica, sans-serif;  #dd0f0f*/
+}
+
+#subheadline {
+    font-weight: 500;
+    font-size: 1.7em;
+    color: rgb(71, 12, 12);
+    text-shadow: 
+                  0px 2px 2px rgba(90, 11, 11,0.3),
+                  0px 4px 4px rgba(196, 77, 77,0.3),
+                  0px 7px 6px rgba(209, 163, 163,0.3);
+    font-family: ozard;
+}
+}

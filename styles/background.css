@@ -1,0 +1,11 @@
+body {
+    background: url("./images/background.png");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+html, head {
+    height: 100%;
+    width: 100%;
+}

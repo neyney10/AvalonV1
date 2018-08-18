@@ -1,0 +1,38 @@
+
+#panel {
+    background-color:rgba(141, 141, 141, 0.5);;
+    height: 98.4%;
+    width:100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#panel ul {
+    margin:0px;
+    width:100%;
+    padding: 0px;
+}
+#panel li {
+    list-style: none;
+    text-align: center;
+    line-height: 48px;
+    font-weight: 600;
+    font-size: 20px;
+    transition: 0.2s;
+}
+#panel li:first-child{
+    border-top-right-radius: 10px;
+}
+#panel li:nth-child(even) {
+   background-color:rgb(151, 26, 26);
+
+}
+#panel li:nth-child(odd) {
+    background-color:rgb(206, 40, 40);
+}
+
+#panel li:hover {
+    filter:brightness(80%);
+    font-weight: 800;
+    font-size: 1.5em;
+    cursor: pointer;
+}

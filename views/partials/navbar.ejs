@@ -1,0 +1,24 @@
+<link href="navbar.css" rel="stylesheet" type="text/css">
+<nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-fixed-top" >
+    <div class="container">
+      <div class="navbar-header">
+            <a id="brand" class="navbar-brand" href="./">
+                    <img id="icon" src="./images/CASTLEICON.png">
+                אבלון</a>
+                <% if(typeof user !== 'undefined') { %>
+                <a id="sign" class="nav-link" href="./logout">התנתק<span class="sr-only">(current)</span></a>
+                <% } else {%>
+                <a id="sign" class="nav-link" href="./register">הירשם<span class="sr-only">(current)</span></a>
+                <% } %>   
+                    
+                <% if(typeof user !== 'undefined') { %>
+                    <a id="login" class="nav-link" href="./profile">
+                    <%= user %>
+                    <% } else {%>
+                <a id="login" class="nav-link" href="./login">
+                    התחבר
+                    <% } %>
+                    <span class="sr-only">(current)</span></a>
+            </div>
+    </div>
+</nav>
