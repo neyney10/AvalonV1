@@ -5,7 +5,7 @@
     left: 50%;
     position: fixed;
     z-index: 6;
-    
+    overflow: auto;
 }
 
 #nav-menu-panel {
