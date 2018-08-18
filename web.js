@@ -206,5 +206,7 @@ app.post('/passwordchange',requireLogin, function(req,res){
 //////////////////////////////////////
 //server start - > listen to port 80//
 //////////////////////////////////////
-app.listen(80);
-console.log('-> Server is listening to port 80 <-')
+var port = 80; //for debug - offline use.
+//var port = process.env.PORT; //for Heroku or server
+app.listen(port, process.env.IP); 
+console.log('-> Server is listening to port '+port+' <-');
