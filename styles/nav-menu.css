@@ -1,6 +1,7 @@
 #nav-menu-content{
     display:none;
     width:50%;
+    margin-top:90px;
     left: 50%;
     position: fixed;
     z-index: 6;
@@ -42,6 +43,7 @@
 #nav-menu-panel li:last-child {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    color: darkred;
  }
 
 #nav-menu-panel li:hover {
@@ -57,9 +59,9 @@
     height:100%;
     position: fixed;
     left: 0px;
-    background-color: rgba(221, 193, 68, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 6;
-    
+    margin-top:0px;
 }
 
 #nav-menu-panel {
@@ -86,6 +88,13 @@
 
 #nav-menu-panel li:first-child {
     background-color: rgb(167, 3, 3);
+    border-radius: 0px;
+    
+ }
+
+ #nav-menu-panel li:last-child {
+    border-radius: 0px;
+    
  }
  
 #nav-menu-panel li:hover {
