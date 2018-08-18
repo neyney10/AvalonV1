@@ -12,7 +12,7 @@
                 <% } %>   
                     
                 <% if(typeof user !== 'undefined') { %>
-                    <a id="login" class="nav-link" href="./profile">
+                    <a id="account" class="nav-link" href="#">
                     <%= user %>
                     <% } else {%>
                 <a id="login" class="nav-link" href="./login">
@@ -22,3 +22,5 @@
             </div>
     </div>
 </nav>
+
+<% include modals/nav-menu %>

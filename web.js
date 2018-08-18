@@ -150,9 +150,10 @@ app.post("/login", function(request, response) {
     //find in database username corresponds to user input
     userModel.findOne({'user':request.body.user},function(err, user) {
         if (err) { console.log(err); throw err; return;}; //if there was an error then stop.
-        console.log("user findone login: " +user.user);
+
         if(user !== null) //if found any results
         {
+            console.log("user findone login: " +user.user);
             if(request.body.user == user.user && request.body.pass == user.pass) //if results match
             {
                 request.session.user = user;
@@ -206,7 +207,7 @@ app.post('/passwordchange',requireLogin, function(req,res){
 //////////////////////////////////////
 //server start - > listen to port 80//
 //////////////////////////////////////
-//var port = 80; //for debug - offline use.
-var port = process.env.PORT; //for Heroku or server
+var port = 80; //for debug - offline use.
+//var port = process.env.PORT; //for Heroku or server
 app.listen(port, process.env.IP); 
 console.log('-> Server is listening to port '+port+' <-');
