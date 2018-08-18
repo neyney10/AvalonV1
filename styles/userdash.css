@@ -12,34 +12,80 @@
    
 }
 
-ul {
-    padding-top: 10px;
-    padding-left: 10px;
+table {
+    
+    margin-top:10px;
+    
     width:50%;
     float:left;
 }
-li {
-    list-style: none;
+tr {
     color:black;
     line-height: 32px;
     
 }
-li:nth-child(even) {
+#window thead tr {
+    background-color: rgba(0, 0, 0, 0);
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    font-weight: 600;
+    text-decoration: underline;
+    
+}
+
+#window thead tr td {
+    background-color: darkred;
+    border: solid 0px #000;
+    border-style: none solid solid none;
+    padding: 10px;
+}
+
+#window thead tr td:first-child {
+    background-color: rgb(117, 2, 2);
+    border-top-left-radius: 10px;
+}
+
+#window thead tr td:last-child {
+    background-color: rgb(161, 2, 2);
+    border-top-right-radius: 10px;
+}
+
+
+#window tbody tr:last-child {
+    background-color: rgba(0, 0, 0,0);
+    border-bottom-left-radius: 10px;
+}
+
+#window tbody tr:last-child td{
+    background-color: wheat;
+
+}
+#window tbody tr:last-child td:first-child {
+
+    border-bottom-left-radius: 10px;
+}
+
+#window tbody tr:last-child td:last-child {
+
+    border-bottom-right-radius: 10px;
+}
+
+tr:nth-child(even) {
     background-color: seashell;
 }
-li:nth-child(odd) {
+tr:nth-child(odd) {
     background-color: rgb(192, 190, 176);
 }
 
-li:hover span{
+tbody tr:hover span{
     width: 32px;
     opacity: 1;
 }
-li:hover {
+tbody tr:hover {
     border: 1px solid black;
 }
 
-li span {
+tr span {
     opacity: 0;
     float: left;
     text-align: center;
@@ -48,20 +94,20 @@ li span {
     height:32px;
     transition: 0.2s;
 }
-li span .fa-trash {
+tr span .fa-trash {
     background-color:rgb(184, 4, 4);
     height: 100%;
     width: 100%;
     padding: 9px;
 }
-li span  .fa-user-edit {
+tr span  .fa-user-edit {
     background-color:rgb(184, 106, 4);
     height: 100%;
     width: 100%;
     padding: 9px;
 }
 
-li span:hover {
+tr span:hover {
     filter: brightness(80%);
     border:1px dashed black;
     cursor: pointer;
