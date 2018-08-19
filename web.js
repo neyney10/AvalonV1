@@ -195,6 +195,7 @@ var u = new userModel ({
     user: req.body.user,
     pass: req.body.pass,
     permission: "standard",
+    score:0,
     level:"1"
 });
 
@@ -204,9 +205,7 @@ console.log(error);
     
 u.save(function(err, user){
     if(err) {
-        console.log(err);
-        console.log(err.errors);
-        console.log(err.message);
+
         res.render('register',{message: err.message})
     }
     else{
