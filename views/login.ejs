@@ -21,13 +21,15 @@
                         <div class="form-group">
                           <label id="emaillabel" for="exampleInputEmail1">כתובת דואר אלקטרוני</label>
                           <input type="email" class="form-control" id="exampleInputEmail1" name="user" aria-describedby="emailHelp" placeholder="הכנס כתובת דואר אלקטרוני">
-                         
                         </div>
                         <div class="form-group">
                           <label id="passlabel" for="pass">סיסמה</label>
                           <input type="password" class="form-control" id="pass" name="pass" placeholder="בחר סיסמה">
                         </div>
                         <button id="submitbtn" type="submit" class="btn btn-primary">התחבר</button>
+                        <% if(typeof redirect !== 'undefined') { %>
+                            <input type="hidden" id="redirect" name="redirect" value='<%=redirect%>'>
+                            <% } %>
                       </form>
                     </div>
  

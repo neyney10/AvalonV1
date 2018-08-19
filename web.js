@@ -76,7 +76,12 @@ app.use(function(req, res, next) {
 
   function requireLogin (req, res, next) {
     if (!req.user) {
-      res.redirect('/login');
+        //redirect
+            //set data
+        var path = encodeURIComponent(req.path);
+        console.log(path);
+        //redirect now
+        res.redirect('/login?redirect=' + path);
     } else {
       next();
     }
@@ -117,9 +122,12 @@ app.get('/cards',requireLogin,function(req,res) {
     res.render('cards',{files: files });
 });
 
+app.get('/profile',requireLogin, function(req, res) {
+    res.render('profile');
+});
 
 app.get('/login',function(req,res) {
-    res.render('login');
+     res.render('login',{redirect: req.query.redirect});
 });
 
 app.get('/register',function(req,res) {
@@ -160,7 +168,10 @@ app.post("/login", function(request, response) {
             if(request.body.user == user.user && request.body.pass == user.pass) //if results match
             {
                 request.session.user = user;
-                response.render('index',{user: user.user});
+                if(!request.body.redirect)
+                    response.render('index',{user: user.user});
+                    else
+                    response.redirect(request.body.redirect.slice(1));
                 return;
             }
         }
@@ -222,7 +233,7 @@ app.post('/passwordchange',requireLogin, function(req,res){
 //////////////////////////////////////
 //server start - > listen to port 80//
 //////////////////////////////////////
-//port = 80; //for debug - offline use.
-var port = process.env.PORT; //for Heroku or server
+port = 80; //for debug - offline use.
+//var port = process.env.PORT; //for Heroku or server
 app.listen(port, process.env.IP); 
 console.log('-> Server is listening to port '+port+' <-');
