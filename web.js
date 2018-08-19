@@ -32,6 +32,7 @@ var userSchema = new Schema({
     id: String,
     user: {type: String, minlength: [2,'אימייל קצר מדי'],maxlength: [10,'אימייל ארוך מדי']},
     pass: String,
+    permission: String,
     level: String
 },{ collection: 'users' });
 
@@ -169,7 +170,7 @@ app.post("/login", function(request, response) {
             {
                 request.session.user = user;
                 if(!request.body.redirect)
-                    response.render('index',{user: user.user});
+                    response.redirect('index');
                     else
                     response.redirect(request.body.redirect.slice(1));
                 return;
@@ -185,6 +186,7 @@ var u = new userModel ({
     id: "debugOnly",
     user: req.body.user,
     pass: req.body.pass,
+    permission: "standard",
     level:"1"
 });
 

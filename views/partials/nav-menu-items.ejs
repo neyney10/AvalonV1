@@ -1,0 +1,9 @@
+<% if (typeof userobj !== 'undefined' && userobj.permission === "admin") { %>
+    <li onclick="location.href='/userdash'">ניהול משתמשים <i class="fas fa-users-cog"></i></li>
+    <% } %>
+<li onclick="location.href='/profile'">פרופיל <i class="fas fa-user"></i></li>
+<li onclick="location.href='/cards'">קלפים <i class="fas fa-archive"></i></li>
+<li onclick="location.href='/rules-terms'">תקנון וחוקים <i class="fas fa-book"></i></li>
+<li onclick="location.href='/about'">אודות <i class="fas fa-info-circle"></i></li>
+<li onclick="location.href='/'">דף בית <i class="fas fa-home"></i></li>
+<li onclick="location.href='/logout'">התנתק <i class="fas fa-door-open"></i></li>
