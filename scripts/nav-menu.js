@@ -9,13 +9,14 @@ navbar_account.addEventListener('click',function(){
         nav_menu_show = true;
     }
     else {
-        nav_menu_modal.style.display = 'none';
-        nav_menu_show = false;
+        nav_menu_close();
     }
 });
 
 var nav_menu_btn_close = document.getElementById("nav-menu-btn-close");
-nav_menu_btn_close.addEventListener('click',function(){
+nav_menu_btn_close.addEventListener('click',nav_menu_close);
+
+function nav_menu_close() {
     nav_menu_modal.style.display = 'none';
     nav_menu_show = false;
-});
+}

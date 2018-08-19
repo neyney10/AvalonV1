@@ -30,7 +30,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
     id: String,
-    user: String,
+    user: {type: String, minlength: [2,'Too small name length'],maxlength: [10,'Too big name length']},
     pass: String,
     level: String
 },{ collection: 'users' });
@@ -174,6 +174,10 @@ var u = new userModel ({
     level:"1"
 });
 
+//validate values
+var error = u.validateSync();
+console.log(error);
+    
 u.save(function(err, user){
     if(err) console.log("error");
     else
