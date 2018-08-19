@@ -33,6 +33,7 @@ var userSchema = new Schema({
     user: {type: String, minlength: [2,'אימייל קצר מדי'],maxlength: [10,'אימייל ארוך מדי']},
     pass: String,
     permission: String,
+    score: Number,
     level: String
 },{ collection: 'users' });
 
@@ -63,6 +64,7 @@ app.use(function(req, res, next) {
           delete req.user.password; // delete the password from the session
           req.session.user = user;  //refresh the session value
           res.locals.user = user.user;
+          res.locals.usershort = user.user.slice(0,user.user.indexOf('@')); //the username without the email suffix
           res.locals.userobj = user;
         }
         // finishing processing the middleware and run the route
@@ -148,8 +150,6 @@ app.get('/:path', function(req,res) {
             res.send(html);
         }
     });
-   
-
 });
 
 
@@ -240,10 +240,24 @@ app.post('/passwordchange',requireLogin, function(req,res){
     });
 });
 
+app.post('/usersearch',requireLogin, function(req,res) {
+    userModel.find({ user:new RegExp('^'+req.body.user) }, function (err,users) {
+        if (err) return handleError(err);
+        // Found
+        var send_data = [];
+        if(users)
+        users.forEach(element => {
+            send_data.push(element.user);
+        });
+
+        res.send(send_data);
+      });
+});
+
 //////////////////////////////////////
 //server start - > listen to port 80//
 //////////////////////////////////////
-//port = 80; //for debug - offline use.
-var port = process.env.PORT; //for Heroku or server
+port = 80; //for debug - offline use.
+//var port = process.env.PORT; //for Heroku or server
 app.listen(port, process.env.IP); 
 console.log('-> Server is listening to port '+port+' <-');

@@ -2,7 +2,8 @@ var nav_menu_show = false;
 var nav_menu_modal = document.getElementById('nav-menu-content');
 
 var navbar_account = document.getElementById('account');
-
+console.log(navbar_account);
+if(navbar_account !== null) 
 navbar_account.addEventListener('click',function(){
     if(nav_menu_show === false) {
         nav_menu_modal.style.display = 'block';

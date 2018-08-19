@@ -113,7 +113,36 @@ tr span:hover {
     cursor: pointer;
 }
 
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 2;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
 
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+  }
+
+#search-panel {
+    margin-top: 12px;
+    margin-left:10px;
+    position: relative;
+  display: inline-block;
+
+}
+
+#search-input {
+   
+}
 
 #container2 {
     background-color: rgba(0, 0, 0, 0.8);
@@ -132,5 +161,5 @@ tr span:hover {
     float:left;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-
+    overflow: auto;
 }

@@ -20,12 +20,17 @@
                             <div id="windowhead">
                                     ניהול משתמשים
                                 </div>
-                        <table  dir="ltr">
+                        <div id="search-panel">
+                                <input id="search-input" type="text" placeholder="חיפוש...">
+                                
+                        </div>
+                        <table  dir="ltr" >
                                 <thead>
                                         <tr>
                                                 <td>Username/email</td>
                                                 <td>Password</td>  
                                                 <td>Permission</td>  
+                                                <td>Score</td>  
                                                 <td>Level</td>  
                                                 <td>ID</td>      
                                         </tr>
@@ -36,6 +41,7 @@
                                                 <td><span class='spanedit'><i class="fas fa-user-edit"></i></span><span class='spanremove'><i class="fas fa-trash"></i></span><%=users[i].user%></td>
                                                 <td><%=users[i].pass%></td>
                                                 <td><%=users[i].permission%></td>
+                                                <td><%=users[i].score%></td>
                                                 <td><%=users[i].level%></td>
                                                 <td><%=users[i].id%></td>
                                          </tr>
