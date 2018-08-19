@@ -32,6 +32,10 @@
                           <label id="checkboxlabel" class="form-check-label" for="checkbox" name="checkbox"> אני מאשר שקראתי את <a href='/rules-terms'>החוקים והתקנון</a></label>
                         </div>
                         <button id="submitbtn" type="submit" class="btn btn-primary">הירשם</button>
+                        <% if(typeof message !== 'undefined') { %>
+                            <hr id="hr"/>
+                            <p id="message"> <%= message %> </p>
+                           <% } %>
                       </form>
                     </div>
  

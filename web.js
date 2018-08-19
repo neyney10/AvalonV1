@@ -30,7 +30,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
     id: String,
-    user: {type: String, minlength: [2,'Too small name length'],maxlength: [10,'Too big name length']},
+    user: {type: String, minlength: [2,'אימייל קצר מדי'],maxlength: [10,'אימייל ארוך מדי']},
     pass: String,
     level: String
 },{ collection: 'users' });
@@ -147,7 +147,10 @@ app.get('/:path', function(req,res) {
 
 //POSTS REQUESTS
 app.post("/login", function(request, response) {
-    //find in database username corresponds to user input
+    login_user(request,response);
+ });
+ function login_user (request,response) {
+     //find in database username corresponds to user input
     userModel.findOne({'user':request.body.user},function(err, user) {
         if (err) { console.log(err); throw err; return;}; //if there was an error then stop.
 
@@ -164,7 +167,7 @@ app.post("/login", function(request, response) {
 
         response.render('index');
     });
- });
+ }
 
 app.post('/register', function(req,res) {
 var u = new userModel ({
@@ -174,18 +177,26 @@ var u = new userModel ({
     level:"1"
 });
 
-//validate values
+//validate values // DEBUG ONLY, can be removed as the progam does it automatically
 var error = u.validateSync();
 console.log(error);
     
 u.save(function(err, user){
-    if(err) console.log("error");
-    else
-    console.log("SAVED! Maybe...");
-    console.log(user);
-});
+    if(err) {
+        console.log(err);
+        console.log(err.errors);
+        console.log(err.message);
+        res.render('register',{message: err.message})
+    }
+    else{
+        console.log("SAVED! Maybe...");
+        console.log(user);
+        console.log(req.body.user);
+        req.body.user = user.user; 
+        login_user(req,res);
+    }
+    });
 
-    res.redirect('/register');
 });
 
 
