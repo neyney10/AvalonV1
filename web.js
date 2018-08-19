@@ -89,6 +89,15 @@ app.use(function(req, res, next) {
     }
   };
 
+  function requirePermission (permission) {
+    return function(req,res,next) {
+        if(req.session.user.permission === permission)
+            next();
+            else //NEED TO CREATE 'DONT HAVE PERMISSIONS FOR THIS PAGE' PAGE.
+            res.redirect('/accessdenied'); //TEMP
+    };
+  }
+
 //////////
 //Router//
 //////////
@@ -107,7 +116,7 @@ app.get('/',function(req,res) {
        
 });
 
-app.get('/userdash',requireLogin,function(req,res) {
+app.get('/userdash',requireLogin,requirePermission('admin'),function(req,res) {
     userModel.find({},function(err, users) {
 
         if (err) { console.log(err); res.render('userdash',{users: ""});  throw err; return;} //if there was an error then stop.
@@ -220,7 +229,7 @@ u.save(function(err, user){
 });
 
 
-app.post('/delete',requireLogin, function(req,res) {
+app.post('/delete',requireLogin,requirePermission('admin'),function(req,res) {
     console.log(req.body.user );
     userModel.deleteOne({ user: req.body.user }, function (err) {
         if (err) return handleError(err);
@@ -256,7 +265,7 @@ app.post('/usersearch',requireLogin, function(req,res) {
 //////////////////////////////////////
 //server start - > listen to port 80//
 //////////////////////////////////////
-//port = 80; //for debug - offline use.
-var port = process.env.PORT; //for Heroku or server
+port = 80; //for debug - offline use.
+//var port = process.env.PORT; //for Heroku or server
 app.listen(port, process.env.IP); 
 console.log('-> Server is listening to port '+port+' <-');
