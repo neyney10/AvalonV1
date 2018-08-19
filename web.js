@@ -80,7 +80,6 @@ app.use(function(req, res, next) {
         //redirect
             //set data
         var path = encodeURIComponent(req.path);
-        console.log(path);
         //redirect now
         res.redirect('/login?redirect=' + path);
     } else {
@@ -128,7 +127,7 @@ app.get('/profile',requireLogin, function(req, res) {
 });
 
 app.get('/login',function(req,res) {
-     res.render('login',{redirect: req.query.redirect});
+     res.render('login',{redirect: req.query.redirect, message: req.query.err});
 });
 
 app.get('/register',function(req,res) {
@@ -177,7 +176,16 @@ app.post("/login", function(request, response) {
             }
         }
 
-        response.render('index');
+        //else - if not found user or found unmatched user credentials
+        var wrong = encodeURIComponent("true");
+        //redirect now
+        if(!request.body.redirect)
+            response.redirect('/login?err=' + wrong);
+            else {
+                var redirect = encodeURIComponent(request.body.redirect);
+                response.redirect('/login?redirect=' + redirect + "&err=" + wrong);
+            }
+
     });
  }
 
@@ -235,7 +243,7 @@ app.post('/passwordchange',requireLogin, function(req,res){
 //////////////////////////////////////
 //server start - > listen to port 80//
 //////////////////////////////////////
-port = 80; //for debug - offline use.
-//var port = process.env.PORT; //for Heroku or server
+//port = 80; //for debug - offline use.
+var port = process.env.PORT; //for Heroku or server
 app.listen(port, process.env.IP); 
 console.log('-> Server is listening to port '+port+' <-');

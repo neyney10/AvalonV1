@@ -73,3 +73,24 @@ img {
     box-shadow: 0px 0px 0px 0.2rem rgba(255, 0, 64, 0.25);
 }
 
+
+#message {
+    color:red;
+    font-weight: 600;
+    font-size: 1.25em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    float: right;
+    padding:3px;
+    display: flex;
+    width:100%;
+}
+
+#hr {
+    width: 70%;
+    border-top: 1px solid darkred;
+    border-bottom: 1px solid rgba(0,0,0,0.4);;
+    display: flex;
+
+}

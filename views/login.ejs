@@ -30,6 +30,10 @@
                         <% if(typeof redirect !== 'undefined') { %>
                             <input type="hidden" id="redirect" name="redirect" value='<%=redirect%>'>
                             <% } %>
+                            <% if(typeof message !== 'undefined') { %>
+                                <hr id="hr"/>
+                                <p id="message"> שגיאה: פרטי זיהוי שגויים </p>
+                               <% } %>
                       </form>
                     </div>
  
