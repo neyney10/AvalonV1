@@ -80,6 +80,12 @@ img {
 
 }
 
+#content li {
+    list-style-position: inside;
+    text-align: left;
+    direction: ltr;
+}
+
 
 #headline {
     font-size: 2em;
