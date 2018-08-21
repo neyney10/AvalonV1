@@ -54,7 +54,7 @@
     background-color: wheat;
 }
 
-#nav-menu-panel l   i:nth-of-type(even) {
+#nav-menu-panel li:nth-of-type(even) {
     background-color: rgb(231, 193, 122);
 
 }
