@@ -2,7 +2,15 @@
 //Other Settings//
 //////////////////
 var fs = require('fs');
+var iconvlite = require('iconv-lite');
 
+function readFileSync_encoding(filename, encoding) {
+    var content = fs.readFileSync(filename);
+    return iconvlite.decode(content, encoding);
+}
+
+var chars = JSON.parse(readFileSync_encoding('./assets/cardsdata.txt', 'CP1255')); 
+console.log(chars); 
 //////////////////////////////
 //express setup and settings//
 //////////////////////////////
@@ -130,7 +138,7 @@ app.get('/userdash',requireLogin,requirePermission('admin'),function(req,res) {
 app.get('/cards',requireLogin,function(req,res) {
     var fs = require('fs'); 
     var files = fs.readdirSync('./assets/images/cards');
-    res.render('cards',{files: files });
+    res.render('cards',{files: files, chars: chars });
 });
 
 app.get('/profile',requireLogin, function(req, res) {
