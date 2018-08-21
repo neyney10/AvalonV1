@@ -37,9 +37,9 @@ img {
 }
 
 #content {
-    text-shadow: rgb(109, 7, 7) 0px 0px 2px;
+    text-shadow: rgba(109, 7, 7, 0.548) 0px 0px 2px;
     color: rgb(184, 159, 158);
-    padding-top: 2%;
+    padding-top: 15px;
     text-align: center;
 }
 
