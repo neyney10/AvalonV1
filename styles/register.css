@@ -21,12 +21,12 @@ img {
 
 .row {
     background-color: #343a40;
-    width: 80%;
+
     height: 100%;
     margin-bottom: 10%;
     margin-right: auto;
     margin-left: auto;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 #headbarform {
@@ -57,7 +57,7 @@ img {
 
 #content {
 
-    padding-top: 13%;
+    padding-top: 8%;
 }
 
 #submitbtn {
@@ -98,4 +98,13 @@ img {
     border-bottom: 1px solid rgba(0,0,0,0.4);;
     display: flex;
     margin: 60px auto auto auto;
+}
+
+@media only screen and (min-width: 576px) 
+{
+.row {
+    width: 90%;
+    border-radius: 15px;
+    
+}
 }
