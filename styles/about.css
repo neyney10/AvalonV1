@@ -56,6 +56,29 @@ img {
     border-bottom: 1px solid rgba(0,0,0,0.4);;
 }
 
+#gifs img{
+    width:auto;
+    height:auto;
+    max-width: 95%;
+    max-height: 95%;
+    border:3px double black;
+    box-shadow: 1px 1px 13px black;
+}
+
+#gifs h2{
+    font-size: 1.6em;
+    font-weight: 600;
+    color: darkred;
+    text-shadow:
+   -0.7px -0.7px 0 #000,  
+   0.7px -0.7px 0 #000,
+    -0.7px 0.7px 0 #000,
+    0.7px 0.7px 0 #000;
+    font-family: ozard, trashim-bold;
+    text-decoration: underline;
+    margin-top: 10px;
+
+}
 
 
 #headline {
