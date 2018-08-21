@@ -35,11 +35,18 @@ img {
 }
 
 #content {
-    color: black;
+    text-shadow: rgb(109, 7, 7) 0px 0px 2px;
+    color: rgb(184, 159, 158);
     padding-top: 13%;
     text-align: center;
 }
 
+#content img {
+    width: 66px;
+    height: 66px;
+  
+    filter:none;
+}
 
 #hr {
     width: 70%;

@@ -7,18 +7,14 @@
                     <img id="icon" src="./images/CASTLEICON.png">
                 אבלון</a>
                 <% if(typeof user !== 'undefined') { %>
-                <a id="logout" class="nav-link" href="./logout">התנתק<span class="sr-only">(current)</span></a>
-                <% } else {%>
-                <a id="sign" class="nav-link" href="./register">הירשם<span class="sr-only">(current)</span></a>
-                <% } %>   
-                    
-                <% if(typeof user !== 'undefined') { %>
+                    <a id="logout" class="nav-link" href="./logout">התנתק<span class="sr-only">(current)</span></a>
                     <a id="account" class="nav-link" href="#"> <i class="fas fa-caret-down"></i>
                     <%= user %>
-                    <% } else {%>
-                <a id="login" class="nav-link" href="./login">
-                    התחבר
-                    <% } %>
+                <% } else {%>
+                    <a id="sign" class="nav-link" href="./login">התחבר<span class="sr-only">(current)</span></a>
+                    <a id="account" class="nav-link" href="#"> תפריט <i class="fas fa-caret-down"></i>
+                <% } %>   
+                    
                     <span class="sr-only">(current)</span></a>
             </div>
     </div>
