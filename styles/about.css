@@ -28,6 +28,7 @@ img {
   
     height: 100%;
     margin-bottom: 10%; 
+    margin-top: 0px;
     margin-right: auto;
     margin-left: auto;
     border-radius: 10px;
@@ -38,7 +39,7 @@ img {
 #content {
     text-shadow: rgb(109, 7, 7) 0px 0px 2px;
     color: rgb(184, 159, 158);
-    padding-top: 13%;
+    padding-top: 2%;
     text-align: center;
 }
 
@@ -75,7 +76,7 @@ img {
 
 
 
-@media only screen and (min-width: 768px) 
+@media only screen and (min-width: 576px) 
 {
 #headline {
     font-size: 3em;
@@ -97,14 +98,14 @@ img {
 }
 
 .row {
-    background-color: #343a40;
     width: 80%;
-    height: 100%;
-    margin-bottom: 10%;
-    margin-right: auto;
-    margin-left: auto;
     border-radius: 15px;
-    
+}
+
+#content {
+
+    padding-top: 13%;
+
 }
 
 }
