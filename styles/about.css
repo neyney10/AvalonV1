@@ -17,7 +17,7 @@ img {
 }
 
 #content i {
-    font-size:3em;
+    font-size:2em;
     color:orangered;
     
 }
@@ -25,12 +25,13 @@ img {
 
 .row {
     background-color: #343a40;
-    width: 80%;
+  
     height: 100%;
-    margin-bottom: 10%;
+    margin-bottom: 10%; 
     margin-right: auto;
     margin-left: auto;
-    border-radius: 15px;
+    border-radius: 10px;
+    
     
 }
 
@@ -90,5 +91,20 @@ img {
    /* font-family: Arial, Helvetica, sans-serif;  #dd0f0f*/
 }
 
+#content i {
+    font-size:3em;
+    
+}
+
+.row {
+    background-color: #343a40;
+    width: 80%;
+    height: 100%;
+    margin-bottom: 10%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 15px;
+    
+}
 
 }
