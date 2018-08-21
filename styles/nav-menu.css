@@ -104,13 +104,6 @@
     letter-spacing: 3px;
 }
 
-#nav-menu-panel li:nth-child(even) {
-    background-color: wheat;
-}
-
-#nav-menu-panel li:nth-child(odd) {
-    background-color: rgb(231, 193, 122);
-}
 
 #nav-menu-panel li:first-child {
     background-color: rgb(167, 3, 3);
