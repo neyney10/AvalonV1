@@ -265,7 +265,9 @@ app.post('/usersearch',requireLogin, function(req,res) {
 //////////////////////////////////////
 //server start - > listen to port 80//
 //////////////////////////////////////
-port = 80; //for debug - offline use.
-//var port = process.env.PORT; //for Heroku or server
+var port = process.env.PORT; //for Heroku or server
+if(!port) //if not on Server or container
+    port = 80; //for debug - offline use.
+
 app.listen(port, process.env.IP); 
 console.log('-> Server is listening to port '+port+' <-');
