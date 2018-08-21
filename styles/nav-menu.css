@@ -8,11 +8,36 @@
    
 }
 
+.hide-login  {
+    display:none;
+}
+
+
 #nav-menu-panel {
 
     text-align: center;
     padding: 0px;left: -50%;
     position: relative; 
+}
+
+
+#nav-menu-panel form input {
+    width:100%;
+    height:100%;
+}
+
+#nav-menu-panel form button {
+    width:100%;
+    height:100%;
+    font-weight: 600;
+    font-size: 1.2em;
+    background-color: rgb(56, 50, 50);
+}
+
+
+#nav-menu-panel form input:focus {
+    border: 2px solid darkred;
+    text-align: left;
 }
 
 #nav-menu-panel li {
@@ -25,11 +50,11 @@
   
 }
 
-#nav-menu-panel li:nth-child(even) {
+#nav-menu-panel li:nth-of-type(odd) {
     background-color: wheat;
 }
 
-#nav-menu-panel li:nth-child(odd) {
+#nav-menu-panel l   i:nth-of-type(even) {
     background-color: rgb(231, 193, 122);
 
 }

@@ -5,7 +5,8 @@
 <li onclick="location.href='/profile'">פרופיל <i class="fas fa-user"></i></li>
 <li onclick="location.href='/cards'">קלפים <i class="fas fa-archive"></i></li>
     <% }  else { %>
-<li onclick="location.href='/login'">התחבר <i class="fas fa-door-open"></i></li>
+<li id="nav-menu-item-login" onclick="location.href='#'">התחבר <i class="fas fa-door-open"></i></li>
+<div id="nav-menu-item-login-form" class="hide-login"> <form method="POST" action="/login"> <input type="text" name="user" placeholder="משתמש..."> <input type="password" name="pass" placeholder="סיסמה...">   <button id="nav-menu-item-login-form-submit">אישור</button> </form></div>
 <li onclick="location.href='/register'">הירשם <i class="fas fa-flag"></i></li>
     <% } %>
 <li onclick="location.href='/rules-terms'">תקנון וחוקים <i class="fas fa-book"></i></li>
