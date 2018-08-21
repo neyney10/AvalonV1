@@ -9,7 +9,7 @@ function readFileSync_encoding(filename, encoding) {
     return iconvlite.decode(content, encoding);
 }
 
-var chars = JSON.parse(readFileSync_encoding('./assets/cardsdata.txt', 'CP1255')); 
+var chars = JSON.parse(readFileSync_encoding('./assets/cardsdata.json', 'CP1255')); 
 console.log(chars); 
 //////////////////////////////
 //express setup and settings//
@@ -138,6 +138,9 @@ app.get('/userdash',requireLogin,requirePermission('admin'),function(req,res) {
 app.get('/cards',requireLogin,function(req,res) {
     var fs = require('fs'); 
     var files = fs.readdirSync('./assets/images/cards');
+
+    files.sort(function(a,b){return (a.substr(0,2) - b.substr(0,2))});
+   
     res.render('cards',{files: files, chars: chars });
 });
 

@@ -1,51 +1,16 @@
 
-#card-details-content {
-    display: none;
-    position: fixed;
-    width: 350px;
-    height:500;
-    margin: 0px auto;
-    left: 0;
-    right: 0;
-    top: 15%;
-    z-index: 5; /* Sit on top */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: wheat; /* Fallback color */
-    border-radius: 15px;
-    border:2px solid darkred;
-    box-shadow: 2px 2px 25px black;
-}
-
-#card-details-content-card-img {
-    width:300px;
-    height:450px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-}
-
-#card-details-content-card-name {
-    text-align: center;
-    color:black;
-    font-weight: 600;
-    letter-spacing: 3px;
-}
-
-
-@media only screen and (max-width: 768px) {
-
 
     #card-details-content {
         display: none;
         position: fixed;
-        width: 250px;
-        height:375px;
+        width: 305px;
+        height:415px;
+
         margin: 0px auto;
         left: 0;
         right: 0;
-        top: 15%;
-        z-index: 5; /* Sit on top */
+    
+        z-index: 4; /* Sit on top */
         overflow: auto; /* Enable scroll if needed */
         background-color: wheat; /* Fallback color */
         border-radius: 15px;
@@ -62,11 +27,63 @@
         margin-top: 10px;
     }
     #card-details-content-card-name {
-        font-size: 1em;
+        font-size: 2em;
         text-align: center;
-        color:black;
+
         font-weight: 500;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
+        color:rgb(29, 28, 28);
+        background-color:burlywood;
+        box-shadow: 1px 0px 13px 3px black;
     }
     
+    
+#card-details-content-card-lore {
+    text-align: center;
+    font-weight: 600;
+    font-size: 23px;
+    letter-spacing: 2px;
+    color:rgb(87, 84, 84);
+    
 }
+
+#card-details-content-card-details {
+    text-align: center;
+    color:rgb(0, 0, 0);
+    
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+#card-details-content {
+
+    width: 350px;
+    height:600px;
+
+    border-radius: 15px;
+    border:2px solid darkred;
+    box-shadow: 2px 2px 25px black;
+}
+
+#card-details-content-card-img {
+    width:300px;
+    height:450px;
+    display: block;
+
+    margin-top: 10px;
+}
+
+#card-details-content-card-name {
+
+    font-weight: 600;
+    letter-spacing: 3px;
+
+}
+
+
+
+}
+
+
