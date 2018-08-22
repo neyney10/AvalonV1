@@ -1,5 +1,5 @@
 body {
-    background: url("./images/background.png");
+    background: url("./images/background-m.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10,4 +10,14 @@ body {
 html, head {
     height: 100%;
     width: 100%;
+}
+
+@media only screen and (min-width: 768px)
+{
+    body{
+        background: url("./images/background.png");
+        background-size: cover;
+        background-position: center;
+        
+    }
 }
