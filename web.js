@@ -306,7 +306,7 @@ app.post('/addComment',requireLogin, function(req,res){
         if (err) {console.log(err); return err};
         //updated
         commentModel.create({text: req.body.comment, author: req.session.user},function(err,comment){
-            console.log(comment.author);
+            console.log("TO: "+user.user);
             console.log("AUTHOR: "+comment.author.user);
             user.comments.push(comment);
             user.save();

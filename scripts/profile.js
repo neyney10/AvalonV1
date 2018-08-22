@@ -23,8 +23,9 @@ var hide = true;
 
 var userstringid = getQueryString('userid');
 
+
 $('#showchange').click(function() {
-    console.log('clicked');
+
     if(hide === false){
         $('#passchange').fadeOut(200);
         hide=true;
@@ -45,7 +46,9 @@ $('#changenow').click(function(){
 
 $('#btn_addcomment').click(function(){
     var comment = $('#input_comment').val();
-    console.log("comment:" +comment);
+
+    if(typeof userstringid == 'undefined')
+        userstringid = loggeduser_stringid;
     jQuery.post( '/addComment',{"comment": comment,"userstringid":userstringid} , function(){
         var a = document.createElement("li");
         a.innerHTML = comment +"<br> <i>by:</i> <strong><a href='/profile?userid="+loggeduser_stringid+"'>"+loggeduser_name+"</a></strong>";
