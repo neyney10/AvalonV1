@@ -24,13 +24,71 @@
 .btn-primary:focus {
     box-shadow: 0px 0px 0px 0.2rem rgba(255, 0, 64, 0.25);
 }
+#comments .new-comment {
+    border: 2px solid darkred;
+    font-size: 1.125em;
+    font-weight: 600;
+}
 
+
+#content {
+    width:100%;
+}
+#content hr {
+    width: 70%;
+    border-top: 1px solid darkred;
+    border-bottom: 1px solid rgba(0,0,0,0.4);;
+}
+#commentsection h4 {
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 600;
+}
+#commentsection input, #commentsection button{
+    margin: auto;
+    display: block;
+    width:300px;
+    
+
+}
+#comments {
+    margin-top: 1px;
+    list-style: none;
+    width:100%;
+    overflow:auto;
+    padding:0px;
+
+}
+
+#comments li{
+    border: 2px solid rgba(71, 71, 71, 0.623);
+    width:100%;
+    margin: 1px auto;
+    background-color:cornsilk;
+    border-radius: 8px;
+    text-align: center;
+
+    overflow:inherit;
+   
+}
+#comments li:nth-of-type(even)
+{
+    background-color:whitesmoke;
+}
 
 
 
 #passchange {
     display: none;
 }
+
+@media only screen and (min-width: 768px)
+{
+    #comments li{
+        width:73%;       
+    }
+}
+
 
 
 

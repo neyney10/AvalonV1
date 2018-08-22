@@ -303,7 +303,7 @@ app.post('/usersearch',requireLogin, function(req,res) {
 
 app.post('/addComment',requireLogin, function(req,res){
     userModel.findById(req.body.userstringid,function(err,user){
-        if (err) return handleError(err);
+        if (err) {console.log(err); return err};
         //updated
         commentModel.create({text: req.body.comment, author: req.session.user},function(err,comment){
             console.log(comment.author);
