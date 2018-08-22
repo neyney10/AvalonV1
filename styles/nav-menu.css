@@ -78,6 +78,7 @@
 }
 
 @media only screen and (max-width: 768px) {
+
 #nav-menu-content{
     width:100%;
     height:100%;
@@ -93,6 +94,7 @@
     text-align: center;
     padding: 0px;
     left: 0px;
+ 
 }
 
 #nav-menu-panel li {
@@ -120,5 +122,25 @@
  cursor: pointer;
  font-weight: 800;
  font-size: 1.5em;
+
+}
+
+@media only screen and (orientation: landscape) and (min-aspect-ratio: 13/9){
+    #nav-menu-panel {
+
+        display: flex;
+        align-items: stretch; /* Default */
+        justify-content: space-between;
+    }
+    #nav-menu-panel li {
+        width:20vw;
+
+    }
+
+    #nav-menu-panel form {
+        width:50vw;
+        height:33%;
+        
+    }
 }
 }

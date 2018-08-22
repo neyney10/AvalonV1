@@ -37,15 +37,25 @@ db.once('open', function() {console.log("Connected to MongoDB succesfuly!");});
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-    id: String,
-    user: {type: String, minlength: [2,'אימייל קצר מדי'],maxlength: [10,'אימייל ארוך מדי']},
+    user: {type: String, minlength: [3,'שם קצר מדי'],maxlength: [10,'שם ארוך מדי']},
     pass: String,
+    email: String,
     permission: String,
     score: Number,
-    level: String
+    level: String,
+    comments: [{type: Schema.Types.ObjectId, ref: "comments"}]
 },{ collection: 'users' });
 
 var userModel = mongoose.model('users', userSchema );
+
+//-> comment
+//Define a schema
+var commentSchema = new Schema({
+    text: String,
+    author:  {type: Schema.Types.ObjectId, ref: "users"}
+},{ collection: 'comments' });
+
+var commentModel = mongoose.model('comments', commentSchema );
 
 ////////////////////
 //Session Handling//
@@ -145,7 +155,23 @@ app.get('/cards',requireLogin,function(req,res) {
 });
 
 app.get('/profile',requireLogin, function(req, res) {
-    res.render('profile');
+    console.log(req.query.userid);
+    if(!req.query.userid){// SHOULD MOVE IT TO THE MIDDLEWARE?
+        userModel.findById(req.session.user._id).populate({path: "comments", populate:{path: "author"}}).exec(function(err, user){
+            if(err) {res.render('profile',{comments: ["ERROR"]}); console.log(err); throw err}
+            res.render('profile',{comments: user.comments});
+
+    
+        });
+    } else  if(req.query.userid.match(/^[0-9a-fA-F]{24}$/)) {
+        if(req.query.userid != req.session.user._id) {
+        userModel.findById(req.query.userid).populate({path: "comments", populate:{path: "author"}}).exec(function(err, user){
+            if(err || user===null) {res.render('profile',{comments: ["ERROR"]}); console.log(err); return}
+            
+            res.render('profile',{comments: user.comments,userlookupobj: user});
+         });
+        } else {res.redirect('profile'); console.log('redirecting.....')}
+    }   
 });
 
 app.get('/login',function(req,res) {
@@ -211,18 +237,16 @@ app.post("/login", function(request, response) {
 
 app.post('/register', function(req,res) {
 var u = new userModel ({
-    id: "debugOnly",
     user: req.body.user,
     pass: req.body.pass,
+    email: req.body.email,
     permission: "standard",
     score:0,
-    level:"1"
+    level:"1",
+    comments: []
 });
 
-//validate values // DEBUG ONLY, can be removed as the progam does it automatically
-var error = u.validateSync();
-console.log(error);
-    
+
 u.save(function(err, user){
     if(err) {
 
@@ -240,10 +264,13 @@ u.save(function(err, user){
 });
 
 
-app.post('/delete',requireLogin,requirePermission('admin'),function(req,res) {
+app.post('/delete',requireLogin,requirePermission('admin'),function(req,res) { //TODO: PASS USERID INSTEAD OF USER NAME
     console.log(req.body.user );
     userModel.deleteOne({ user: req.body.user }, function (err) {
         if (err) return handleError(err);
+        commentModel.remove({author: user._id} , function(err){ 
+            if (err) return handleError(err);
+        })
         // deleted
         res.send('deleteduser');
       });
@@ -273,6 +300,20 @@ app.post('/usersearch',requireLogin, function(req,res) {
       });
 });
 
+
+app.post('/addComment',requireLogin, function(req,res){
+    userModel.findById(req.body.userstringid,function(err,user){
+        if (err) return handleError(err);
+        //updated
+        commentModel.create({text: req.body.comment, author: req.session.user},function(err,comment){
+            console.log(comment.author);
+            console.log("AUTHOR: "+comment.author.user);
+            user.comments.push(comment);
+            user.save();
+        });
+        res.send('Succesfuly Added :D');
+    });
+});
 //////////////////////////////////////
 //server start - > listen to port 80//
 //////////////////////////////////////

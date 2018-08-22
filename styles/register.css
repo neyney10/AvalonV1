@@ -40,10 +40,11 @@ img {
     
 }
 
-#passlabel, #emaillabel {
+
+#passlabel, #emaillabel, #userlabel {
     color:whitesmoke;
     float:right;
-    padding-top: 5px;
+    
     
 }
 #emailHelp, #submitbtn, #checkbox {
