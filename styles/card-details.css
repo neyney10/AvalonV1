@@ -26,15 +26,29 @@
         margin-right: auto;
         margin-top: 10px;
     }
+    #card-details-content-card-header {
+        background-color:burlywood;
+        box-shadow: 1px 0px 13px 3px black;
+        text-align: center;
+        position: relative;
+    }
     #card-details-content-card-name {
         font-size: 2em;
         text-align: center;
-
         font-weight: 500;
+       
+        display: inline;
         letter-spacing: 3px;
         color:rgb(29, 28, 28);
-        background-color:burlywood;
-        box-shadow: 1px 0px 13px 3px black;
+
+    }
+    #card-details-content-card-header .fas{
+        font-size: 2em;
+        position: absolute;
+        right:13px;
+        top:5px;
+        color:rgb(29, 28, 28);
+        cursor: pointer;
     }
     
     
@@ -76,11 +90,10 @@
 }
 
 #card-details-content-card-name {
-
     font-weight: 600;
     letter-spacing: 3px;
-
 }
+
 
 
 
