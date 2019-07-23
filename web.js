@@ -25,13 +25,16 @@ app.set('view engine', 'ejs'); //default render engine = ejs (instead of html I 
 //////////////////////////////////////////////
 // Load sensitive data (password) from file //
 //////////////////////////////////////////////
-var mongodb_password = readFileSync_encoding('./.passwords.txt' , 'CP1255');
+// for local testing
+if (!process.env.PORT) 
+    var mongodb_password = readFileSync_encoding('./.passwords.txt' , 'CP1255');
+else var mongodb_password = process.env.mongodb_password; // env string in Heroku app deployment settings
 
 ////////////////////////
 //mongoose and mongoDB//
 ////////////////////////
 var mongoose = require('mongoose').set('debug', true);
-mongoose.connect("mongodb+srv://forNodejs:forNodejs@cluster0-zniag.mongodb.net/AvalonWeb?retryWrites=true");
+mongoose.connect("mongodb+srv://forNodejs:"+mongodb_password+"@cluster0-zniag.mongodb.net/AvalonWeb?retryWrites=true");
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
