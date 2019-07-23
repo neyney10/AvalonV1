@@ -1,9 +1,9 @@
 
-Online Website
+### Online Website
 ------------------
 https://salty-ocean-50523.herokuapp.com/
 
-To-Do
+### To-Do
 -----------------
 1). clean code - > use express.router to module the Router navigation from main server file to
 external file.
@@ -14,6 +14,7 @@ external file.
 
 4). fit card-view mobile friendly by making the modal landscape.
 
-Notes
+### Notes
 ------------
 go to /about for more info
+https://salty-ocean-50523.herokuapp.com/about
