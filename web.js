@@ -191,8 +191,10 @@ app.get('/:path', function(req,res) {
     console.log("req params: "+req.params.path);
     res.render(req.params.path, {}, function(err, html) {
         if(err) {
+            console.log(':path -> Error: send 404 page.');
             res.render('404');
         } else {
+            console.log(':path -> Found: send requested page.');
             res.send(html);
         }
     });
