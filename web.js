@@ -22,6 +22,11 @@ app.use(express.static('assets'));
 app.use(express.static('scripts'));
 app.set('view engine', 'ejs'); //default render engine = ejs (instead of html I guess).
 
+//////////////////////////////////////////////
+// Load sensitive data (password) from file //
+//////////////////////////////////////////////
+var mongodb_password = readFileSync_encoding('./.passwords.txt' , 'CP1255');
+
 ////////////////////////
 //mongoose and mongoDB//
 ////////////////////////
