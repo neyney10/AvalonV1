@@ -187,6 +187,10 @@ app.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
+app.get('/favicon.ico' , function(req , res) {
+    res.sendfile('favicon.ico');
+});
+
 app.get('/:path', function(req,res) {
     console.log("req params: "+req.params.path);
     res.render(req.params.path, {}, function(err, html) {
